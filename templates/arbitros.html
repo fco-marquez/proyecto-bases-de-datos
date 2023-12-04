@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+    <title>Visualización de datos</title> 
+</head>
+<body>
+    <main>
+        <div class="stats-container">
+            <figure class="highcharts-figure">
+                <div id="container1"></div>
+                <p class="highcharts-description">
+                    El anterior grafico presenta el top 10 de arbitros según la cantidad de fouls permitidos por cada amarilla
+                </p>
+            </figure>
+        </div>
+        <div class="stats-container">
+            <figure class="highcharts-figure">
+                <div id="container2"></div>
+                <p class="highcharts-description">
+                    El anterior grafico presenta el top 10 de arbitros según la cantidad de fouls permitidos por cada roja
+                </p>
+            </figure>
+        </div>
+        <div>
+            <a class="button" href="{{ url_for('index') }}">Regresar al inicio</a>
+        </div>
+    </main>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="{{url_for('static', filename='js/arbitros.js')}}"></script>
+</body>

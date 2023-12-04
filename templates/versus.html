@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enfrentamientos directos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/tablas.css') }}">
+</head>
+<body>
+  <div id="div-formulario-equipos">
+    {% if error %}
+        <a id="error" onclick="HideError()">
+            <div>
+                Este enfrentamiento no existe, por favor intente otro par de equipos
+            </div>
+        </a>
+    {% endif %}
+    <form id="formulario-equipos" class="forms" action="{{ url_for('versus') }}" method="post" enctype="multipart/form-data">
+        <label for="equipo1">Equipo 1</label>
+        <select id="equipo1" name="equipo1">
+          <option value="">-- Seleccione una opción --</option>
+          {% for equipo in equipos %}
+          <option value="{{equipo[0]}}">{{equipo[1]}}</option>
+          {% endfor %}
+        </select>
+        <label for="equipo2">Equipo 2</label>
+        <select id="equipo2" name="equipo2">
+          <option value="">-- Seleccione una opción --</option>
+          {% for equipo in equipos %}
+          <option value="{{equipo[0]}}">{{equipo[1]}}</option>
+          {% endfor %}
+        </select>
+        <button id="confirmar" type="submit">Buscar enfrentamiento</button>
+    </form>
+
+    {% if tabla %}
+    <div id="tablas-versus-goles">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre equipo 1</th>
+                    <th>Goles equipo 1</th>
+                    <th>Victorias equipo 1</th>
+                    <th>Efectividad de tiro equipo 1</th>
+                    <th>Nombre equipo 2</th>
+                    <th>Goles equipo 2</th>
+                    <th>Victorias equipo 2</th>
+                    <th>Efectividad de tiro equipo 2</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>{{ goles[0] }}</td>
+                <td>{{ goles[1] }}</td>
+                <td>{{ goles[2] }}</td>
+                <td>{{ goles[3] }}%</td>
+                <td>{{ goles[4] }}</td>
+                <td>{{ goles[5] }}</td>
+                <td>{{ goles[6] }}</td>
+                <td>{{ goles[7] }}%</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="tablas-versus-fouls">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre equipo 1</th>
+                    <th>Fouls equipo 1</th>
+                    <th>Amarillas equipo 1</th>
+                    <th>Rojas equipo 1</th>
+                    <th>Nombre equipo 2</th>
+                    <th>Fouls equipo 2</th>
+                    <th>Amarillas equipo 2</th>
+                    <th>Rojas equipo 2</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>{{ fouls[0] }}</td>
+                <td>{{ fouls[1] }}</td>
+                <td>{{ fouls[2] }}</td>
+                <td>{{ fouls[3] }}</td>
+                <td>{{ fouls[4] }}</td>
+                <td>{{ fouls[5] }}</td>
+                <td>{{ fouls[6] }}</td>
+                <td>{{ fouls[7] }}</td>
+            </tr>
+        </table>
+    </div>
+    {% endif %}
+
+    <div>
+        <a class="button" href="{{ url_for('index') }}">Regresar al inicio</a>
+    </div>
+  </div>
+  <div>
+    <script src="{{ url_for('static', filename='js/versus.js') }}"></script>
+  </div>
+</body>
+</html>

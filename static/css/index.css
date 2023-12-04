@@ -1,0 +1,71 @@
+body,
+h1,
+p,
+div {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f8f8f8;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+h1,
+p {
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+.logo {
+    background-image: url('../media/estadio.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.desc {
+    position: absolute;
+    top: 35%;
+    left: 25%;
+}
+
+.titulo {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: #4caf50; /* Green color */
+}
+
+.botones {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4caf50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Add your specific styling for highcharts description if needed */
+.highcharts-description {
+    color: #f8f8f8;
+    background-color: #4caf50; /* Green color */
+}
